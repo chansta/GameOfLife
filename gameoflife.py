@@ -13,6 +13,7 @@ import scipy as sp
 import scipy.stats as sps
 import matplotlib.pyplot as plt
 import itertools as it
+import sys as sys
 from matplotlib import animation
 
 class gameoflive(object): 
@@ -125,6 +126,8 @@ frames=1000
 fig = plt.figure(figsize=(12,9), facecolor=(1,1,1))
 FA = lambda i: FuncAnimate(i,g)
 anim = animation.FuncAnimation(fig, FA, frames=1000)
-#plt.show()
-anim.save("gameoflife.mp4")
+if sys.argv[1] == "save":
+    anim.save("gameoflife.mp4")
+else:
+    plt.show()
 
